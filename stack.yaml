@@ -1,0 +1,12 @@
+resolver: lts-14.4
+
+packages:
+- .
+
+extra-deps:
+  - git: https://github.com/graninas/Hydra.git
+    commit: a1c49c46051b4ac8f3a57cd76adbc6cf73bd140f
+
+  - base58-bytestring-0.1.0
+  - time-units-1.0.0
+  - rocksdb-haskell-1.0.1
