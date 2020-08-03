@@ -3,21 +3,22 @@ module Music.App where
 import qualified Data.Map      as Map
 import qualified Data.String   as Str
 import qualified Data.List     as List
+import qualified Data.Binary.Builder as B
+import qualified Data.ByteString.Lazy as B
+import qualified Data.ByteString.Builder as B
+import           System.Process (runCommand)
+import           Text.Printf (printf)
 
 import qualified Hydra.Domain  as D
 import Music.Prelude       as L
 import Music.Domain
 import Music.Types
 import Music.Sound
+import Music.Musics
 import Music.Algorithms
-import Music.Gen
-import Music.Lens
-import qualified Music.KVDB.Model as KVDB
-import qualified Music.KVDB.Repository as KVDB
-
 
 save :: FilePath -> IO ()
-save filePath = B.writeFile filePath $ B.toLazyByteString $ fold $ map B.floatLE hehehe
+save filePath = B.writeFile filePath $ B.toLazyByteString $ fold $ map B.floatLE testSounds1
 
 play :: IO ()
 play = do

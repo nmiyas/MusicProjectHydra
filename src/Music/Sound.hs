@@ -6,7 +6,6 @@ import qualified Data.Map                   as Map
 
 
 import           Music.Domain
-import           Music.Algorithms
 
 outputFilePath :: FilePath
 outputFilePath = "output.bin"

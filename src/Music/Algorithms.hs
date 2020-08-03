@@ -1,11 +1,13 @@
 module Music.Algorithms where
 
+import Prelude (zipWith3)
+
 import qualified Data.Map as Map
 import qualified Data.Set as Set
 
 import Music.Prelude
 import Music.Domain
-
+import Music.Sound
 
 -- NOTE: the formula is taken from https://pages.mtu.edu/~suits/NoteFreqCalcs.html
 f :: Semitones -> Hz
