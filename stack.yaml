@@ -5,7 +5,10 @@ packages:
 
 extra-deps:
   - git: https://github.com/graninas/Hydra.git
-    commit: a1c49c46051b4ac8f3a57cd76adbc6cf73bd140f
+    commit: 58de96d5729fed9e73a12b00551f7882e515951d
+    subdirs:
+      - lib/hydra-base
+      - lib/hydra-free
 
   - base58-bytestring-0.1.0
   - time-units-1.0.0
