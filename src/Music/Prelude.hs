@@ -4,7 +4,7 @@ module Music.Prelude
   , putTextLn
   ) where
 
-import           Hydra.Prelude as X hiding (retry, atomically, putStrLn, putTextLn)
+import           Hydra.Prelude as X hiding (retry, atomically, putStrLn, putTextLn, note)
 import qualified Hydra.Prelude as PP
 import qualified Data.Text as T
 

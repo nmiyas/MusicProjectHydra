@@ -4,6 +4,7 @@ import qualified Data.Map  as Map
 
 import           Music.Prelude
 import           Music.Domain
+import           Music.Algorithms
 
 testSounds1 :: [Pulse]
 testSounds1 = concat
