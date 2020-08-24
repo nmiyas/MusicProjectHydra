@@ -6,53 +6,253 @@ import           Music.Prelude
 import           Music.Domain
 import           Music.Algorithms
 
-testSounds1 :: [Pulse]
-testSounds1 = concat
-    [ note 0 0.25
-    , note 0 0.25
-    , note 0 0.25
-    , note 0 0.25
-    , note 0 0.5
-    , note 0 0.25
-    , note 0 0.25
-    , note 0 0.25
-    , note 0 0.25
-    , note 0 0.25
-    , note 0 0.25
-    , note 0 0.5
-    , note 5 0.25
-    , note 5 0.25
-    , note 5 0.25
-    , note 5 0.25
-    , note 5 0.25
-    , note 5 0.25
-    , note 5 0.5
-    , note 3 0.25
-    , note 3 0.25
-    , note 3 0.25
-    , note 3 0.25
-    , note 3 0.25
-    , note 3 0.25
-    , note 3 0.5
-    , note (-2) 0.5
-    , note 0 0.25
-    , note 0 0.25
-    , note 0 0.25
-    , note 0 0.25
-    , note 0 0.5
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+-- music timing sample Gangnam Style, no sound
+
+gangnamTexts :: [Text]
+gangnamTexts =
+  [ beats
+  , dollar1
+  , oppa
+  , gangnam
+  , style
+  , dollar1
+  , beats
+  , beats
+  , dollar1
+  , gangnam
+  , style
+  , dollar1
+  , beats
+  , stars1
+  , stars1
+  , stars1
+  , stars2
+  , stars2
+  , stars2
+  , blank
+  , v111
+  , v112
+  , v121
+  , v122
+  , v131
+  , v132
+  , v141
+  , v142
+  , v143
+  , beats
+  , v211
+  , v212
+  , v221
+  , v222
+  , v231
+  , v232
+  , v241
+  , v242
+  , v25
+  , stars1
+  , dollar1
+  , stars2
+  , dollar2
+  , dollar1
+  , dollar2
+  , dollar1
+  , dollar2
+  , stars1
+  , stars2
+  , beats
+  , stars2
+  , stars2
+  , stars2
+  , stars2
+  , stars2
+  , stars2
+  , beats
+  , dollar1
+  , oppa
+  , gangnam
+  , style
+  , dollar1
+  , beats
+  , beats
+  , dollar1
+  , gangnam
+  , style
+  , dollar1
+  , op3
+  , blank
+  , op1
+  , blank
+  , op2
+  , blank
+  , op4
+  ]
+
+gangnamTempos :: [[Float]]
+gangnamTempos =
+  [ introBeat
+  , half
+  , half
+  , single
+  , half
+  , half
+  , tempo
+  , single
+  , half
+  , single
+  , single
+  , half
+  , introBeat
+  , half
+  , half
+  , half
+  , half
+  , half
+  , half
+  , half
+  , quadru
+  , quadru
+  , quadru
+  , quadru
+  , double
+  , double
+  , double
+  , double
+  , double
+  , tempo
+  , double
+  , double
+  , quadru
+  , quadru
+  , quadru
+  , quadru
+  , double
+  , quadru
+  , double
+  , tempo
+  , quadruple
+  , quadruple
+  , quadruple
+  , quadruple
+  , double
+  , double
+  , double
+  , double
+  , double
+  , double
+  , tempo
+  , double
+  , double
+  , single
+  , single
+  , single
+  , single
+  , introBeat
+  , half
+  , half
+  , single
+  , half
+  , half
+  , tempo
+  , single
+  , half
+  , single
+  , half
+  , half
+  , single
+  , half
+  , half
+  , half
+  , half
+  , half
+  , half
     ]
 
+gangnamPhases :: [Int]
+gangnamPhases =
+  [ 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 2
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  , 1
+  ]
 
 
-testSounds2 :: [Pulse]
-testSounds2 = concat [ note 0 0.25
-                , note 0 0.25
-                , note 12 0.5
-                , note 7 (0.5 + 0.25)
-                , note 6 0.5
-                , note 5 0.5
-                , note 3 0.5
-                , note 0 0.25
-                , note 3 0.25
-                , note 5 0.25
-                ]
+
+zipWith3Gangnam :: [(Text, Int, [Float])]
+zipWith3Gangnam =
+  zipWith3 (\x y z -> (x, y, z)) gangnamTexts gangnamPhases gangnamTempos
+
+
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --

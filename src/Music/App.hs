@@ -16,11 +16,13 @@ import Music.Sound
 import Music.Algorithms
 import Music.Musics
 
-save :: FilePath -> IO ()
-save filePath = B.writeFile filePath $ B.toLazyByteString $ fold $ map B.floatLE testSounds1
 
-play :: IO ()
-play = do
-  save outputFilePath
-  _ <- runCommand $ printf "ffplay -autoexit -showmode 1 -f f32le -ar %f %s" sampleRate outputFilePath
-  return ()
+
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+-- music timing sample Gangnam Style, no sound
+
+zipWith3Gangnam :: [(Text, Int, [Float])]
+zipWith3Gangnam =
+  zipWith3 (\x y z -> (x, y, z)) gangnamTexts gangnamPhases gangnamTempos
+
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --

@@ -9,24 +9,59 @@ import Music.Prelude
 import Music.Domain
 import Music.Sound
 
--- NOTE: the formula is taken from https://pages.mtu.edu/~suits/NoteFreqCalcs.html
-f :: Semitones -> Hz
-f n = pitchStandard * (2 ** (1.0 / 12.0)) ** n
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+-- music timing sample Gangnam Style, no sound
 
-note :: Semitones -> Beats -> [Pulse]
-note n beats = freq (f n) (beats * beatDuration)
+frequency :: Int -> Float
+frequency bpm = (fromIntegral bpm) / 60.0
 
-freq :: Hz -> Seconds -> [Pulse]
-freq hz duration =
-  map (* volume) $ zipWith3 (\x y z -> x * y * z) release attack output
+bps :: Int -> Float
+bps = frequency
+
+duration :: Int -> Float
+duration bpm = 1.0 / (frequency bpm)
+
+toIntList :: [Float] -> [Int]
+toIntList fl = map round (map (*1000000) fl)
+
+phraseForLoop:: Int
+phraseForLoop = 4
+
+printingWorkerLoop :: Int -> Int -> IO ()
+printingWorkerLoop phraseForLoop ms = do
+  if phraseForLoop == 0
+  then pure()
+  else do
+    putStrLn @Text ("Hello, world!" <> show ms)
+    threadDelay ms
+    printingWorkerLoop (phraseForLoop-1) ms
+
+printingWorkerOne :: Int -> IO ()
+printingWorkerOne ms = do
+  putStrLn @Text ("Hello, world!" <> show ms)
+  threadDelay ms
+
+--
+printingBeat :: Text -> Int -> IO ()
+printingBeat text ms = do
+  putStrLn @Text text
+  threadDelay ms
+
+mapPrintingWorker :: Text -> [Float] -> IO ()
+mapPrintingWorker text =
+  mapM_ (printingBeat text) . toIntList
+
+mapLoopPrintingWorker :: Text -> Int -> [Float] -> IO()
+mapLoopPrintingWorker text phrase timing = do
+  if phrase == 0
+  then pure()
+  else do
+    mapPrintingWorker text timing
+    mapLoopPrintingWorker text (phrase-1) timing
+
+
+mapAll :: [(Text, Int, [Float])] -> IO()
+mapAll g = mapM_ f g
   where
-    step = (hz * 2 * pi) / sampleRate
-
-    attack :: [Pulse]
-    attack = map (min 1.0) [0.0,0.001 ..]
-
-    release :: [Pulse]
-    release = reverse $ take (length output) attack
-
-    output :: [Pulse]
-    output = map sin $ map (* step) [0.0 .. sampleRate * duration]
+    f (bs, ns, ts) = mapLoopPrintingWorker bs ns ts
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
