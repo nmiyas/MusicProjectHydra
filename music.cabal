@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: f4a0e6fe4c7ef656084c46238426d81bea30b9e769a996f788a9fabcb6bd0057
+-- hash: b1499d28b056d9e0059992499f37fd84a2d6d40a6c66fad7b8b9815ac6e3359d
 
 name:           music
 version:        1.0.0.0
@@ -42,6 +42,7 @@ library
     , bytestring-conversion
     , clock
     , containers
+    , csound-expression
     , directory
     , entropy
     , extra
@@ -86,6 +87,7 @@ executable music
     , bytestring-conversion
     , clock
     , containers
+    , csound-expression
     , directory
     , entropy
     , extra

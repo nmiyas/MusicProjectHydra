@@ -60,6 +60,7 @@ dependencies:
 - binary
 - hydra-base
 - hydra-free
+- csound-expression
 
 library:
   source-dirs:
