@@ -110,10 +110,10 @@ gangnamTempos =
   , half
   , half
   , half
-  , quadru
-  , quadru
-  , quadru
-  , quadru
+  , quadruple
+  , quadruple
+  , quadruple
+  , quadruple
   , double
   , double
   , double
@@ -122,12 +122,12 @@ gangnamTempos =
   , tempo
   , double
   , double
-  , quadru
-  , quadru
-  , quadru
-  , quadru
+  , quadruple
+  , quadruple
+  , quadruple
+  , quadruple
   , double
-  , quadru
+  , quadruple
   , double
   , tempo
   , quadruple
