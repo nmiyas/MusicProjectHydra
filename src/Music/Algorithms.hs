@@ -1,6 +1,8 @@
 module Music.Algorithms where
 
 import Prelude (zipWith3)
+import qualified Prelude as P
+import qualified Data.Text as T
 
 import qualified Data.Map as Map
 import qualified Data.Set as Set
@@ -32,19 +34,20 @@ printingWorkerLoop phraseForLoop ms = do
   if phraseForLoop == 0
   then pure()
   else do
-    putStrLn @Text ("Hello, world!" <> show ms)
+    P.putStrLn ("Hello, world!" <> show ms)
     threadDelay ms
     printingWorkerLoop (phraseForLoop-1) ms
 
 printingWorkerOne :: Int -> IO ()
 printingWorkerOne ms = do
-  putStrLn @Text ("Hello, world!" <> show ms)
+  P.putStrLn ("Hello, world!" <> show ms)
   threadDelay ms
 
 --
+
 printingBeat :: Text -> Int -> IO ()
 printingBeat text ms = do
-  putStrLn @Text text
+  P.putStrLn $ T.unpack text
   threadDelay ms
 
 mapPrintingWorker :: Text -> [Float] -> IO ()
