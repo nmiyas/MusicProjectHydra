@@ -5,6 +5,7 @@ import qualified Data.String   as Str
 import qualified Data.List     as List
 import System.Process
 import Text.Printf
+import Prelude (zipWith3)
 
 import qualified Data.ByteString.Lazy as B
 import qualified Data.ByteString.Builder as B

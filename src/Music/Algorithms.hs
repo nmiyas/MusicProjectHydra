@@ -1,6 +1,5 @@
 module Music.Algorithms where
 
-import Prelude (zipWith3)
 import qualified Prelude as P
 import qualified Data.Text as T
 
@@ -10,6 +9,8 @@ import qualified Data.Set as Set
 import Music.Prelude
 import Music.Domain
 import Music.Sound
+
+
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 -- music timing sample Gangnam Style, no sound

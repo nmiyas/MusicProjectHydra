@@ -2,6 +2,8 @@ module Music.Musics where
 
 import qualified Data.Map  as Map
 
+import           Music.Types
+import           Music.Sound
 import           Music.Prelude
 import           Music.Domain
 import           Music.Algorithms
@@ -247,12 +249,6 @@ gangnamPhases =
   , 1
   , 1
   ]
-
-
-
-zipWith3Gangnam :: [(Text, Int, [Float])]
-zipWith3Gangnam =
-  zipWith3 (\x y z -> (x, y, z)) gangnamTexts gangnamPhases gangnamTempos
 
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
